@@ -24,17 +24,22 @@ public class matrixRotationLayer {
         matrix.add(Arrays.asList(13, 14, 15, 16));
         int r = 2;
         matrixRotation(matrix, r);
+        /*
+        matrix.add(Arrays.asList(1, 2, 3, 4));
+        matrix.add(Arrays.asList(7, 8, 9, 10));
+        matrix.add(Arrays.asList(13, 14, 15, 16));
+        matrix.add(Arrays.asList(19, 20, 21, 22));
+        matrix.add(Arrays.asList(25, 26, 27, 28));
+        int r = 7;
+        matrixRotation(matrix, r);
+        */
     }
 
     static void matrixRotation(List<List<Integer>> matrix, int r) {
         int m = matrix.size();
         int n = matrix.get(0).size();
-
         for (int layer = 0; layer < Math.min(m, n) / 2; layer++) {
-            int perimeter = 2 * (m - 2 * layer) + 2 * (n - 2 * layer) - 4;
-            int rotations = r % perimeter;
-
-            for (int i = 0; i < rotations; i++) {
+            for (int i = 0; i < r; i++) {
                 rotateLayer(matrix, layer);
             }
         }
